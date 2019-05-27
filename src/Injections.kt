@@ -1,6 +1,7 @@
 import util.LoggerImpl
 import webesrver.HttpRequestParser
 import webesrver.StatusLineGenerator
+import webesrver.ThreadExecutor
 import webesrver.WebServer
 import webesrver.responsehandler.ResponseResourceRouter
 
@@ -18,7 +19,8 @@ object Injections {
         provideLogger(),
         provideHttpRequestParser(),
         provideResponseResourceRouter(),
-        provideStatusLineGenerator()
+        provideStatusLineGenerator(),
+        provideThreadExecutor()
     )
 
     private fun provideHttpRequestParser() =
@@ -31,11 +33,14 @@ object Injections {
 
     private fun provideStatusLineGenerator() = StatusLineGenerator()
 
+    private fun provideThreadExecutor() = ThreadExecutor()
+
     object Singleton {
         val webServer = provideWebServer()
         val logger = provideLogger()
         val httpRequestParser = provideHttpRequestParser()
         val responseResourceRouter = provideResponseResourceRouter()
         val statusLineGenerator = provideStatusLineGenerator()
+        val threadExecutor = provideThreadExecutor()
     }
 }
