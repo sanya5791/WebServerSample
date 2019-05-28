@@ -97,5 +97,5 @@ class RequestLine(val type: ActionType, val resource: Resource)
 
 class RequestLineHttpException : Exception(
     "First Query String should have 'Method Uri HTTP/Version' format.\n" +
-            "For example 'GET / HTTP/1.1"
+            "For example 'GET / HTTP/1.1'"
 )

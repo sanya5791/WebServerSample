@@ -11,7 +11,7 @@ const val PORT = 8080
 
 class WebServer(
     private val logger: Logger,
-    private val htppRequestParser: HttpRequestParser,
+    private val httpRequestParser: HttpRequestParser,
     private val responseResourceRouter: ResponseResourceRouter,
     private val statusLineGenerator: StatusLineGenerator,
     private val threadExecutor: ThreadExecutor
@@ -27,10 +27,11 @@ class WebServer(
                 var requestCounter = 0
 
                 while (isWorking) {
-                    logger.out("\n== REQUEST N_${++requestCounter} ======\n")
                     val client = serverSocket.accept()
                     threadExecutor.execute {
+                        logger.out("\n== REQUEST N_${++requestCounter} ======\n")
                         handleRequest(client)
+                        client.close()
                     }
                 }
             }
@@ -43,7 +44,7 @@ class WebServer(
     private fun handleRequest(client: Socket) {
 
         client.getInputStream().use { inputStream ->
-            val httpRequest = htppRequestParser.parse(inputStream)
+            val httpRequest = httpRequestParser.parse(inputStream)
             val responseHandler = responseResourceRouter.getResponseHandler(httpRequest.resource)
             val response = responseHandler.handle(httpRequest)
 
@@ -61,7 +62,6 @@ class WebServer(
                 }
             }
         }
-        client.close()
     }
 
     fun stop() {
