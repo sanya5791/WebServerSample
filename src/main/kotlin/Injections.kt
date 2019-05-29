@@ -1,9 +1,9 @@
 import util.LoggerImpl
-import webesrver.HttpRequestParser
-import webesrver.StatusLineGenerator
-import webesrver.ThreadExecutor
-import webesrver.WebServer
-import webesrver.responsehandler.ResponseResourceRouter
+import webserver.HttpRequestParser
+import webserver.StatusLineGenerator
+import webserver.ThreadExecutor
+import webserver.WebServer
+import webserver.responsehandler.ResponseResourceRouter
 
 object Injections {
 

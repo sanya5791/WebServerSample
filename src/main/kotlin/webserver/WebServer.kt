@@ -1,7 +1,7 @@
-package webesrver
+package webserver
 
 import util.Logger
-import webesrver.responsehandler.ResponseResourceRouter
+import webserver.responsehandler.ResponseResourceRouter
 import java.io.IOException
 import java.io.PrintWriter
 import java.net.ServerSocket

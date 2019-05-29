@@ -1,4 +1,4 @@
-package webesrver.responsehandler
+package webserver.responsehandler
 
 import domain.Body
 import domain.HttpRequest

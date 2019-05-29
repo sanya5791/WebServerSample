@@ -1,2 +1,7 @@
-rootProject.name = 'SmartWebServer'
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
 
+rootProject.name = 'SmartWebServer'
