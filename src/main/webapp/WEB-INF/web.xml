@@ -7,19 +7,43 @@
         <servlet-name>sanya</servlet-name>
         <servlet-class>webserver.servlet.SanyaServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>sanya</servlet-name>
         <url-pattern>/sanya</url-pattern>
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>RegisterUser</servlet-name>
+        <servlet-class>webserver.servlet.RegisterUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterUser</servlet-name>
+        <url-pattern>/register_user</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
         <servlet-name>headers</servlet-name>
         <servlet-class>webserver.servlet.DefaultServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>headers</servlet-name>
-        <url-pattern>/h</url-pattern>
+        <url-pattern>/headers</url-pattern>
     </servlet-mapping>
+
+<!--    filters -->
+    <filter>
+        <filter-name>UserFilter</filter-name>
+        <filter-class>webserver.servlet.filter.UserFilter</filter-class>
+        <init-param>
+            <param-name>active</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>UserFilter</filter-name>
+        <servlet-name>sanya</servlet-name>
+    </filter-mapping>
+
 </web-app>

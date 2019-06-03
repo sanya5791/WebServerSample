@@ -9,14 +9,39 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        th, td {
+            border: 1px solid black;
+            padding: 4px;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+    </style>
+
 </head>
 <body>
 
 <h2>Usage:</h2>
-<ul>
-    <li><a href="http://localhost:8080/h">/h</a> - to show all headers.</li>
-    <li><a href="http://localhost:8080/sanya">/sanya</a> - to show Hello Sanya message</li>
-</ul>
+<table>
+    <tr>
+        <th>Endpoint</th>
+        <th>Description</th>
+    </tr>
+
+    <tr>
+        <td><a href="http://localhost:8080/headers">/headers</a></td>
+        <td>show all headers</td>
+    </tr>
+    <tr>
+        <td><a href="http://localhost:8080/sanya?login=SanyaLogin&password=SanyaPassword">/sanya</a></td>
+        <td>show Sanya's personal details</td>
+    </tr>
+    <tr>
+        <td><a href="http://localhost:8080/register_user">/register_user</a></td>
+        <td>register new user</td>
+    </tr>
+
+</table>
 
 </body>
 </html>
