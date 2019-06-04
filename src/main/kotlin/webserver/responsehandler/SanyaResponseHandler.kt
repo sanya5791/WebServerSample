@@ -4,11 +4,8 @@ import domain.Body
 import domain.HttpRequest
 import domain.HttpResponse
 import domain.Resource
-import kotlinx.html.body
-import kotlinx.html.h2
-import kotlinx.html.html
+import kotlinx.html.*
 import kotlinx.html.stream.appendHTML
-import kotlinx.html.unsafe
 
 class SanyaResponseHandler : ResponseHandler {
     override val uri: String
@@ -19,9 +16,12 @@ class SanyaResponseHandler : ResponseHandler {
             appendHTML().html {
                 body {
                     h2 {
-                        unsafe {
-                            +"Hello, <span style=color:green;>Sanya!!!</span>"
+                        +"Hello, "
+                        span {
+                            attributes["style"] = "color:green"
+                            +"Sanya!!!"
                         }
+
                     }
                 }
             }

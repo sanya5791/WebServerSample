@@ -15,7 +15,12 @@ class SanyaServlet : HttpServlet() {
             appendHTML().html {
                 body {
                     h2 {
-                        unsafe { +"Hello, <span style=color:green;>Sanya!!!</span>" }
+                        +"Hello, "
+                        span {
+                            attributes["style"] = "color:green"
+                            +"Sanya!!!"
+                        }
+
                     }
                 }
             }

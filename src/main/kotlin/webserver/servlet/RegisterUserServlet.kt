@@ -17,7 +17,10 @@ class RegisterUserServlet : HttpServlet() {
                 body {
                     parameterMessage?.apply {
                         p {
-                            unsafe { +"<span style=color:red;>$parameterMessage</span>" }
+                            span {
+                                attributes["style"] = "color:red"
+                                +"$parameterMessage"
+                            }
                         }
                     }
                     h2 { +"Register New User:" }

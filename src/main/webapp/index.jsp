@@ -29,15 +29,15 @@
     </tr>
 
     <tr>
-        <td><a href="http://localhost:8080/headers">/headers</a></td>
+        <td><a href="${pageContext.request.contextPath}/headers">/headers</a></td>
         <td>show all headers</td>
     </tr>
     <tr>
-        <td><a href="http://localhost:8080/sanya?login=SanyaLogin&password=SanyaPassword">/sanya</a></td>
+        <td><a href="${pageContext.request.contextPath}/sanya?login=SanyaLogin&password=SanyaPassword">/sanya</a></td>
         <td>show Sanya's personal details</td>
     </tr>
     <tr>
-        <td><a href="http://localhost:8080/register_user">/register_user</a></td>
+        <td><a href="${pageContext.request.contextPath}/register_user">/register_user</a></td>
         <td>register new user</td>
     </tr>
 

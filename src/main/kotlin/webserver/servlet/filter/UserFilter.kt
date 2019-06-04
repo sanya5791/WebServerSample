@@ -22,9 +22,9 @@ class UserFilter : Filter {
         config = null
     }
 
-    override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain?) {
-        if (!isActive || request == null) {
-            chain?.doFilter(request, response)
+    override fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterChain) {
+        if (!isActive) {
+            chain.doFilter(request, response)
             return
         }
 
@@ -35,10 +35,10 @@ class UserFilter : Filter {
         logger.out("login=$login, password=$password")
 
         if (login == "SanyaLogin" && password == "SanyaPassword") {
-            chain?.doFilter(request, response)
+            chain.doFilter(request, response)
         } else {
             val errorMessage = "Wrong credentials for '$login'"
-            (response as HttpServletResponse).sendRedirect("http://localhost:8080/register_user?message=$errorMessage")
+            (response as HttpServletResponse).sendRedirect("/register_user?message=$errorMessage")
         }
     }
 
